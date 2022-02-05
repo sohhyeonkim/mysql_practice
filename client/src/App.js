@@ -1,13 +1,19 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-
-//import Login from "./Login.js";
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Login from "./Login.js";
 import Signup from "./Signup.js";
+import "./App.css";
+
 function App() {
   return (
-    <>
-      <Signup path="/signup" />
-    </>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

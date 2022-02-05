@@ -15,12 +15,11 @@ function Signup() {
     axios
       .post("http://localhost:8081/users/signup", { email, password })
       .then((res) => {
-        console.log("성공");
+        setIsDisabled((prev) => !prev);
       })
       .catch((err) => {
         console.log(err);
       });
-    setIsDisabled((prev) => !prev);
   };
   return (
     <>
@@ -39,6 +38,10 @@ function Signup() {
             className="signup_form_input"
             onChange={handleChange}
           />
+          {/* <p className="signup_pw_inavailable">
+            비밀번호는 숫자와 영문자 조합하여 8~15자리를 사용해야 합니다
+          </p>
+          <p className="signup_pw_available">사용가능한 비밀번호입니다</p> */}
           <button
             type="submit"
             disabled={isDisabled}
